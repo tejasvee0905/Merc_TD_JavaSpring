@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Laptop1 {
     @Id //makes the attribute(next) as the primary key
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private String brand;
     private int price;
     private int RAM;

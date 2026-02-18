@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/laptops")
+@RequestMapping("/laptop")
 public class LaptopController {
 
     List<Laptop> laptopList = new ArrayList<>();
