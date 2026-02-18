@@ -51,4 +51,5 @@ public class Laptop {
     public void setPrice(double price) {
         this.price = price;
     }
+
 }

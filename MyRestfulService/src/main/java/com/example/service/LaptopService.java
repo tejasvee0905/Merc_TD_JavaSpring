@@ -1,36 +1,30 @@
-package com.example.controller;
+package com.example.service;
 
 
 import com.example.model.Laptop1;
 import com.example.repository.LaptopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/laptop1")
-public class LaptopController1 {
+@Service
+public class LaptopService {
     @Autowired
     LaptopRepository lr;
-    @PostMapping("/add")
-    public void add(@RequestBody Laptop1 lp) {
+    public void addLaptop(@RequestBody Laptop1 lp) {
         lr.save(lp);
     }
-
-    @GetMapping("/list")
-    public List<Laptop1> list() {
+    public List<Laptop1> listLaptop() {
         return lr.findAll();
     }
-
-    @GetMapping("/findOne/{index}")
-    public Optional<Laptop1> findOne(@PathVariable int index) {
+    public Optional<Laptop1> findOnelaptop(@PathVariable int index) {
         return lr.findById(index);
     }
 
-    @PutMapping("/update/{index}")
-    public Laptop1 update(@PathVariable int index, @RequestBody Laptop1 newLaptop) {
+    public Laptop1 updateLaptop(@PathVariable int index, @RequestBody Laptop1 newLaptop) {
         Optional<Laptop1> oldLaptop = lr.findById(index);
         oldLaptop.get().setBrand(newLaptop.getBrand());
         oldLaptop.get().setPrice(newLaptop.getPrice());
@@ -39,13 +33,11 @@ public class LaptopController1 {
         return oldLaptop.get();
     }
 
-    @DeleteMapping("/delete/{index}")
-    public void delete(@PathVariable int index) {
+    public void deleteLaptop(@PathVariable int index) {
         lr.deleteById(index);
     }
 
-    @GetMapping("/findByBrand/{brand}")
-    public List<Laptop1> findByBrandName(@PathVariable String brand) {
+    public List<Laptop1> findByBrand(@PathVariable String brand) {
         return lr.findByBrand(brand);
     }
 }
