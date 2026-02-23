@@ -14,4 +14,6 @@ public interface LaptopRepository extends JpaRepository<Laptop1, Integer> {
     //JPQL
     @Query(value = "select l from Laptop1 l where l.brand=?1")
     public List<Laptop1> findByBrand(String brand);
+
+
 }
